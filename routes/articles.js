@@ -65,7 +65,7 @@ router.get('/edit/:id', ensureAuth, (req, resp, next) => {
     Article.findById(req.params.id)
         .then((art) => {
             // @ts-ignore
-            if (req.user?.id == art.author) {
+            if (req.user?.id === art.author) {
                 resp.render('edit_article', {
                     title: 'Edit Article',
                     article: art
@@ -102,7 +102,7 @@ router.delete('/:id', ensureAuth, async (req, resp) => {
     await Article.findById(req.params.id)
         .then((err, article) => {
             // @ts-ignore
-            if (article.author != req.user?._id) {
+            if (article.author !== req.user?._id) {
                 resp.status(500).send();
             } else {
                 Article.deleteOne(query)
