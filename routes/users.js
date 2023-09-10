@@ -19,7 +19,6 @@ router.post('/register', (req, resp) => {
     const email = req.body.email;
     const username = req.body.username;
     const password = req.body.password;
-    const cpassword = req.body.cpassword;
 
     req.checkBody('name', 'Name is required').notEmpty();
     req.checkBody('email', 'Email is required').notEmpty();
@@ -57,14 +56,12 @@ router.post('/register', (req, resp) => {
                         })
                         .catch((err) => {
                             console.log(err);
-                            return;
                         });
                 }
             });
         });
 
     }
-
 });
 
 
@@ -90,4 +87,5 @@ router.get('/logout', (req, res, next) => {
         res.redirect("/");
     });
 });
+
 module.exports = router;

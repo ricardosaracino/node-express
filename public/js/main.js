@@ -8,9 +8,9 @@ $(document).ready(() => {
         $.ajax({
             type: 'DELETE',
             url: '/articles/' + id,
-            success: ((resp) => {
-                alert('Deleting Article'),
-                    window.location.href = '/';
+            success: (() => {
+                alert('Deleting Article');
+                window.location.href = '/';
             }),
             error: ((err) =>
                 console.log(err))
